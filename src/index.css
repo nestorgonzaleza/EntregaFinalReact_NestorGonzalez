@@ -11,3 +11,69 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.encab {
+   
+  background-color: rgba(0, 0, 0, 0.521);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  align-content: stretch;
+
+}
+
+header h1 {
+  color: white;
+}
+
+.menu {
+  list-style-type: none;
+  
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;   
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 16px;
+  /*align-content: space-around;*/
+}
+
+.menu li {
+    
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+         
+}
+
+.link {
+    
+  text-decoration: none;
+  color: white;
+  
+}
+
+
+/*carrito de compras*/
+
+.carroCompras {
+
+  display:flex;
+  gap: 5px;
+}
+
+
+/* Saludo */
+
+.SaludoContainer {
+  text-align: center;
+}
