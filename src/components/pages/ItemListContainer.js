@@ -74,22 +74,22 @@ function ItemListContainer() {
 
       }, 2000)
   }, [parametros.id])
-
-    if (parametros){
+console.log(parametros)
+    if (Object.keys(parametros).length === 0){
         if (loading) {
             return (
                 <Loader/>
             )
         } else {
             return (
-                <ItemList productos={filtrados}/>
+                <ItemList productos={productosIniciales}/>
             )
         }
         }
     else {
 
             return (
-                <ItemList productos={productosIniciales}/>
+                <ItemList productos={filtrados}/>
                 
             )
         }
