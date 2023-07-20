@@ -13,7 +13,7 @@ function App() {
         <main className='p-4 grow'>
 
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<ItemListContainer />} />
             <Route path="/category/:id" element={<ItemListContainer />} />
             <Route path="/item/:id" element={<ItemDetailContainer />} />
           </Routes>

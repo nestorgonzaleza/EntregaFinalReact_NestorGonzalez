@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from "react"
+import { useEffect, useState, createContext, useContext  } from "react"
 import Loader from "../Loader"
 import ItemList from "../ItemList"
 import { useParams } from "react-router-dom"
@@ -47,8 +47,8 @@ function ItemListContainer() {
   const parametros = useParams()   
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filtrados, setFiltrados] = useState(true) 
-
+  const [filtrados, setFiltrados] = useState([]) 
+    
   useEffect(() => {
       setTimeout(() => {
           
@@ -70,21 +70,30 @@ function ItemListContainer() {
             return item.categoría === parametros.id
           }))
 
+          
 
       }, 2000)
   }, [parametros.id])
 
+    if (parametros){
+        if (loading) {
+            return (
+                <Loader/>
+            )
+        } else {
+            return (
+                <ItemList productos={filtrados}/>
+            )
+        }
+        }
+    else {
 
-  if (loading) {
-      return (
-          <Loader/>
-      )
-  } else {
-      return (
-          <ItemList productos={filtrados}/>
-      )
-  }
-}
-
+            return (
+                <ItemList productos={productosIniciales}/>
+                
+            )
+        }
+    }
+  
 
 export default ItemListContainer
