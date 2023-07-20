@@ -46,7 +46,7 @@ const productosIniciales1 = [
 function ItemDetailContainer() {
 
   const parametros1 = useParams()   
-  const [productos, setProductos1] = useState([])
+  const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
   const [filtrados1, setFiltrados1] = useState([]) 
 
@@ -62,7 +62,7 @@ function ItemDetailContainer() {
           };
         
           fetchData().then((productosIniciales1) => {
-            setProductos1(productosIniciales1)
+            setProductos(productosIniciales1)
             setLoading(false)
           });
         
@@ -71,6 +71,9 @@ function ItemDetailContainer() {
             return item.nombre === parametros1.id
           }))
          console.log(filtrados1) 
+         console.log(parametros1.id) 
+         console.log(productosIniciales1) 
+
           
 
       }, 2000)
