@@ -70,9 +70,10 @@ function ItemDetailContainer() {
          setFiltrados1(productosIniciales1.filter((item,id)=>{
             return item.nombre === parametros1.id
           }))
-         console.log(filtrados1) 
+         console.log(productosIniciales1[0].nombre) 
          console.log(parametros1.id) 
          console.log(productosIniciales1) 
+         console.log(filtrados1)
 
           
 
@@ -86,7 +87,7 @@ function ItemDetailContainer() {
       )
   } else {
       return (
-          <ItemDetail nombre={filtrados1.nombre} precio = {filtrados1.precio} descrip ={filtrados1.descripcion} link = {filtrados1.link}/>
+          <ItemDetail nombre={filtrados1[0].nombre} precio = {filtrados1[0].precio} descrip ={filtrados1[0].descripcion} link = {filtrados1[0].link}/>
       )
   }
 }
