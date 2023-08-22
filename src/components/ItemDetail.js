@@ -1,15 +1,19 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+import ItemCount from './ItemCount'
+
+
 
 function ItemDetail(props) {
   return (
     <>
     <div className = "container">
-       
+          <img className='imagen_muestra' src={props.image} alt="Descripción de la imagen" />
           <h2>{props.nombre}</h2>
-          <h4>{props.precio}</h4>
+          <h4>${props.precio}</h4>
           <h5>{props.descrip}</h5>
-          <NavLink to={props.enlace} className = "link">Comprar</NavLink>
+          <p>Unidades disponibles: {props.stock}</p>
+          
+          <ItemCount nombre={props.nombre} precio={props.precio} stock={props.stock}/>
     </div>
     </>
   )

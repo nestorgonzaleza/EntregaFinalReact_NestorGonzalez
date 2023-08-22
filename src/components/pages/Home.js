@@ -1,6 +1,14 @@
+
+import { Link } from "react-router-dom"
+
+
+
 function Home() {
     return (
-      <div>Home</div>
+      <>
+        <div>Bienvenido a nuestro e-commerce</div>
+        <Link to="/productos">Revisa el catálogo que Novosita bisutería tiene para ti!!</Link>
+      </>
     )
   }
   export default Home

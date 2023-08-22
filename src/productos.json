@@ -1,7 +1,0 @@
-[
-    {"nombre":"aros a", "precio": 6000, "stock": 10, "categoría":"aros"},
-    {"nombre":"aros b", "precio": 6800, "stock": 12, "categoría":"aros"},
-    {"nombre":"pulsera a", "precio": 5400, "stock": 8, "categoría":"pulseras"},
-    {"nombre":"pulsera b", "precio": 5900, "stock": 11, "categoría":"pulseras"}
-
-]

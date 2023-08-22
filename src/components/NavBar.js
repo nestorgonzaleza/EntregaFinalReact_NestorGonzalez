@@ -8,9 +8,10 @@ function NavBar() {
     <header className="encab">
         <NavLink to="/" className = "link"><h1>NOVOSITA</h1></NavLink>
         <nav className="menu">
-
+            <NavLink to="/" className = "link">Home</NavLink>
+            <NavLink to="/productos" className = "link">Productos</NavLink>  
             <NavLink to="/category/aros" className = "link">Aros</NavLink>
-            <NavLink to="/category/pulseras" className = "link">Pulseras</NavLink>
+            <NavLink to="/category/anillos" className = "link">Anillos</NavLink>
             
         </nav>
         <CartWidget />

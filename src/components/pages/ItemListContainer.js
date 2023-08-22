@@ -1,99 +1,42 @@
-import React from 'react'
-import { useEffect, useState, createContext, useContext  } from "react"
+import { useEffect, useState } from "react"
 import Loader from "../Loader"
 import ItemList from "../ItemList"
+import { traerProductos, traerProductosPorCategoria } from "../Utils"
 import { useParams } from "react-router-dom"
 
-const productosIniciales = [
-    {
-        nombre :"aros_A",
-        precio : 6000, 
-        stock : 10,
-        categoría:"aros",
-        id:1,
-        descripcion: "Descripcion del producto aros a",
-        link:"/item/aros_A"},
-
-    {
-        nombre :"aros_B", 
-        precio : 6800, 
-        stock: 12, 
-        categoría:"aros",
-        id:2,
-        descripcion: "Descripcion del producto aros b",
-        link:"/item/aros_B"},
-
-    {
-        nombre :"pulsera_A", 
-        precio : 5400, 
-        stock: 8, 
-        categoría:"pulseras",
-        id:3,
-        descripcion: "Descripcion del producto pulsera a",
-        link:"/item/pulsera_A"},
-
-    {
-        nombre :"pulsera_B", 
-        precio : 5900, 
-        stock: 11, 
-        categoría:"pulseras",
-        id:4,
-        descripcion: "Descripcion del producto pulsera b",
-        link:"/item/pulsera_B"}
-    
-  ]
-
 function ItemListContainer() {
-  const parametros = useParams()   
-  const [productos, setProductos] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [filtrados, setFiltrados] = useState([]) 
-    
-  useEffect(() => {
-      setTimeout(() => {
-          
-        const fetchData = () => {
-            return new Promise((resolve) => {
 
-                resolve(productosIniciales);
-              
-            });
-          };
-        
-          fetchData().then((productosIniciales) => {
-            setProductos(productosIniciales)
-            setLoading(false)
-          });
-        
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
+    const params = useParams()
 
-         setFiltrados(productosIniciales.filter((item,id)=>{
-            return item.categoría === parametros.id
-          }))
+    useEffect(() => {
 
-          
+        let pedido;
 
-      }, 2000)
-  }, [parametros.id])
-console.log(parametros)
-    if (Object.keys(parametros).length === 0){
-        if (loading) {
-            return (
-                <Loader/>
-            )
+        if (params.id) {
+            pedido = traerProductosPorCategoria(params.id)
         } else {
-            return (
-                <ItemList productos={productosIniciales}/>
-            )
+            pedido = traerProductos()
         }
-        }
-    else {
 
-            return (
-                <ItemList productos={filtrados}/>
-                
-            )
-        }
+        pedido.then((resultado) => {
+            setProductos(resultado)
+            setLoading(false)
+        })
+
+    }, [params.id])
+
+
+    if (loading) {
+        return (
+            <Loader />
+        )
+    } else {
+        return (
+            <ItemList productos={productos} />
+        )
     }
-  
+}
 
 export default ItemListContainer

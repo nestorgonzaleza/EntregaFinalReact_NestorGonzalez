@@ -81,3 +81,35 @@ header h1 {
 .link {
   color:orange
 }
+
+/*imagenes*/
+
+.imagen_muestra {
+  height: 300px;
+  border-radius: 5px;
+}
+
+.tarjetas{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px
+}
+
+/* .container{
+  display:flex;
+  flex-direction: column;
+  width: auto
+} */
+
+.botones {
+  display: flex;
+  gap: 8px
+}
+
+.cartList{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px
+}

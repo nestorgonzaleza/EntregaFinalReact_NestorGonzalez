@@ -3,10 +3,10 @@ import Item from "./Item"
 function ItemList(props) {
 
     return (
-        <section>
+        <section className="tarjetas">
             {props.productos.map(productos => {
-                return <Item id={productos.id} nombre={productos.nombre} precio={productos.precio} 
-                link= {productos.link}/>
+                return <Item key={productos.id} nombre={productos.nombre} precio={productos.precio} 
+                link= {productos.link} image={productos.image}/>
             })}
         </section>
     )

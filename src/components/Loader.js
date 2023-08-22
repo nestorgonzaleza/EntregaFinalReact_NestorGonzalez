@@ -1,6 +1,6 @@
 function Loader() {
     return (
-      <div>Obteniendo productos...</div>
+      <div>Obteniendo datos...</div>
     )
   }
   export default Loader
